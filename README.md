@@ -70,6 +70,9 @@ python main.py
 ## 👨‍💻 Desenvolvido por
 
 BCC - Ciência da Computação – Projeto da disciplina de Computação Gráfica (2025)
-Integrantes: Leonardo Nunes, Marcos Nascimento, Tayane Cibely e Tiago Cunha
-
+Integrantes: 
+- [Leonardo Nunes](https://github.com/leonardonb)
+- [Marcos Nascimento](https://github.com/MarcosNascimento46)
+- [Tayane Cibely](https://github.com/tayanecibely)
+- [Tiago Cunha](https://github.com/tiagojose76)
 ---
