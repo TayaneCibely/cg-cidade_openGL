@@ -69,6 +69,7 @@ python main.py
 
 ## 👨‍💻 Desenvolvido por
 
-Grupo de Ciência da Computação – Projeto de Computação Gráfica (2025)
+BCC - Ciência da Computação – Projeto da disciplina de Computação Gráfica (2025)
+Integrantes: Leonardo Nunes, Marcos Nascimento, Tayane Cibely e Tiago Cunha
 
 ---
