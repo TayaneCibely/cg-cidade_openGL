@@ -23,3 +23,8 @@ def update_car_position():
     if state["car_position"] > 5:
         state["car_position"] = -5.0
         state["passed_light"] = False
+
+def update_clouds():
+    state["cloud_offset"] += 0.01
+    if state["cloud_offset"] > 12:
+        state["cloud_offset"] = -12
