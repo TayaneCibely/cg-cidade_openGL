@@ -1,3 +1,4 @@
+
 import pygame
 from OpenGL.GL import *
 from OpenGL.GLU import *
@@ -116,15 +117,22 @@ def draw_scene():
     glLoadIdentity()
     gluLookAt(0, 5, 15, 0, 0, 0, 0, 1, 0)
 
-    # Estrada (longitudinal no eixo X)
-    glColor3f(0.1, 0.1, 0.1)
+    # Carregar a textura do asfalto
+    asphalt_texture_id = load_texture("textures/asfalto.png")
+    
+    
+       # Estrada com textura
+    glEnable(GL_TEXTURE_2D)
+    glBindTexture(GL_TEXTURE_2D, asphalt_texture_id)  # Aplicando a textura do asfalto
+
     glBegin(GL_QUADS)
-    glVertex3f(-6, -1, -1)
-    glVertex3f(6, -1, -1)
-    glVertex3f(6, -1, 1)
-    glVertex3f(-6, -1, 1)
+    glTexCoord2f(0, 0); glVertex3f(-6, -1, -1)
+    glTexCoord2f(1, 0); glVertex3f(6, -1, -1)
+    glTexCoord2f(1, 1); glVertex3f(6, -1, 1)
+    glTexCoord2f(0, 1); glVertex3f(-6, -1, 1)
     glEnd()
 
+    glDisable(GL_TEXTURE_2D)  # Desativar a textura após usar
     
     
     # Faixa branca central (tracejada)
@@ -137,19 +145,28 @@ def draw_scene():
         glVertex3f(x - 0.2, -0.99, 0.05)
         glEnd()
 
-    # Grama lateral
-    glColor3f(0.2, 0.6, 0.2)
-    glBegin(GL_QUADS)
-    glVertex3f(-6, -1.01, -5)
-    glVertex3f(6, -1.01, -5)
-    glVertex3f(6, -1.01, -1)
-    glVertex3f(-6, -1.01, -1)
+    
+      # Carregar a textura da grama
+    grass_texture_id = load_texture("textures/grama.png")
 
-    glVertex3f(-6, -1.01, 1)
-    glVertex3f(6, -1.01, 1)
-    glVertex3f(6, -1.01, 5)
-    glVertex3f(-6, -1.01, 5)
+    # Grama lateral com textura
+    glEnable(GL_TEXTURE_2D)
+    glBindTexture(GL_TEXTURE_2D, grass_texture_id)  # Aplicando a textura da grama
+
+    
+    glBegin(GL_QUADS)
+    glTexCoord2f(0, 0); glVertex3f(-6, -1.01, -5)
+    glTexCoord2f(1, 0); glVertex3f(6, -1.01, -5)
+    glTexCoord2f(1, 1); glVertex3f(6, -1.01, -1)
+    glTexCoord2f(0, 1); glVertex3f(-6, -1.01, -1)
+
+    glTexCoord2f(0, 0); glVertex3f(-6, -1.01, 1)
+    glTexCoord2f(1, 0); glVertex3f(6, -1.01, 1)
+    glTexCoord2f(1, 1); glVertex3f(6, -1.01, 5)
+    glTexCoord2f(0, 1); glVertex3f(-6, -1.01, 5)
     glEnd()
+
+    glDisable(GL_TEXTURE_2D)  # Desativar a textura após usar
 
     # Prédios
     draw_building_with_windows(-4, 0, 4, 2, (0.7, 0.2, 0.2), (1, 1, 1))
