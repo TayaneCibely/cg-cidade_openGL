@@ -14,6 +14,34 @@ grass_texture_id = None
 asphalt_texture_id = None
 brick_texture_id = None
 
+
+
+# Função para configurar a iluminação
+def setup_lighting():
+    glEnable(GL_LIGHTING)
+    glEnable(GL_LIGHT0)
+
+    # Posição da luz (x, y, z, w). Se w=0, é direcional.
+    light_pos = [10.0, 10.0, 10.0, 1.0]
+    glLightfv(GL_LIGHT0, GL_POSITION, light_pos)
+
+    # Cores da luz
+    ambient = [0.2, 0.2, 0.2, 1.0]
+    diffuse = [0.8, 0.8, 0.8, 1.0]
+    specular = [1.0, 1.0, 1.0, 1.0]
+
+    glLightfv(GL_LIGHT0, GL_AMBIENT, ambient)
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse)
+    glLightfv(GL_LIGHT0, GL_SPECULAR, specular)
+
+    # Ativar uso da cor dos objetos como material
+    glEnable(GL_COLOR_MATERIAL)
+    glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
+
+    # Ativar sombreamento suave
+    glShadeModel(GL_SMOOTH)
+
+
 def generate_terrain_mesh():
     mesh = []
     for i in range(-400, 400):
